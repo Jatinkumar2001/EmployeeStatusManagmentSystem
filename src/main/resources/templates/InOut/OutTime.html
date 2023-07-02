@@ -1,0 +1,25 @@
+<html th:xmlns="www.thymleaf.org">
+
+<head></head>
+
+<body>
+	<div class="container-fluid">
+		<div th:insert="navbar.html"></div>
+		<div class="container-md mt-5" th:if="${!elist.empty}">
+			<form action="addOutTime" method="post">
+				<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="eid">
+					<option selected>Select an employee</option>
+					<option th:each="emp :${elist}" th:text="${emp.firstName}" +" "+" ${emp.eid}" th:value="${emp.eid}">
+					</option>
+				</select>
+				<div class="mt-5">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</form>
+		</div>
+		<div th:text="${msg}"></div>
+		<div class="container-md mt-5" th:if="${elist.empty}">No Employee are Present in Database</div>
+	</div>
+</body>
+
+</html>
