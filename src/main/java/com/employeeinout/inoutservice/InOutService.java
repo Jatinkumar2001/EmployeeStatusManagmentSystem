@@ -1,10 +1,17 @@
 package com.employeeinout.inoutservice;
 
+import java.util.List;
+
 import com.employeeinout.models.InOutRecord;
 
 public interface InOutService 
 {
 
-	void saveOutTime(InOutRecord inOut);
+
+
+	int saveInTime(InOutRecord inOut);
+
+	int saveOutTime(InOutRecord inOut);
+
 
 }

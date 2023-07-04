@@ -6,13 +6,13 @@
 	<div class="container-fluid">
 		<div th:insert="navbar.html"></div>
 		
-		<div class="text-center col-12"><h1>ADD OUT TIME</h1></div>
+		<div class="text-center col-12"><h1>ADD IN TIME</h1></div>
 
 		<div class="container-md mt-5" th:if="${!elist.empty}">
-			<form action="addOutTime" method="post">
+			<form action="addInTime" method="post">
 				<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="eid">
 					<option selected>Select an employee</option>
-					<option th:each="emp :${elist}" th:text="${emp.firstName}" +" "+" ${emp.eid}" th:value="${emp.eid}">
+					<option th:each="emp :${elist}" th:text="${emp.firstName}" th:value="${emp.eid}">
 					</option>
 				</select>
 				<div class="mt-3">
