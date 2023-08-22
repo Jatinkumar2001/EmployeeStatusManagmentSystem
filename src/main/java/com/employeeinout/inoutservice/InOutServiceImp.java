@@ -30,7 +30,9 @@ public class InOutServiceImp implements InOutService {
 			Employee emp = employeeService.getEmployee(inOut.getEid());
 			inOut.setName(emp.getFirstName());
 			inOut.setDate(LocalDate.now().toString());
-			inOut.setInTime(LocalTime.now().toString());
+			LocalTime time=LocalTime.now();
+			LocalTime currentTime=LocalTime.of(time.getHour(), time.getMinute());
+			inOut.setInTime(currentTime.toString());
 			repo.save(inOut);
 			return 1;
 		} else if (out.getOutTime() == null) {
@@ -46,7 +48,9 @@ public class InOutServiceImp implements InOutService {
 		if (!list.isEmpty()) {
 			out = list.get(list.size() - 1);
 			if (out.getInTime() != null && out.getOutTime() == null) {
-				repo.updateOutRecord(LocalTime.now().toString(), inOut.getEid(), LocalDate.now().toString());
+				LocalTime time=LocalTime.now();
+				LocalTime currentTime=LocalTime.of(time.getHour(), time.getMinute());
+				repo.updateOutRecord(currentTime.toString(), inOut.getEid(), LocalDate.now().toString());
 				return 2;
 
 			}
